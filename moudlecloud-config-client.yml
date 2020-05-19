@@ -1,0 +1,30 @@
+spring:
+   profiles:
+      active:
+        - dev
+---
+server:
+  port: 8201
+
+spring:
+  profiles: dev
+  application:
+      name: moudleconfig-test-client
+
+eureka:
+ client:
+  service-url:
+    defaultZone: http://admin:liu123@eureka1:7001/eureka,http://admin:liu123@eureka2:7002/eureka,http://admin:liu123@eureka3:7003/eureka
+---
+server:
+  port: 8102
+
+spring:
+  profiles: beta
+  application:
+      name: microconfig-test-client
+
+eureka:
+ client:
+  service-url:
+    defaultZone: http://admin:liu123@eureka1:7001/eureka,http://admin:liu123@eureka2:7002/eureka,http://admin:liu123@eureka3:7003/eureka
