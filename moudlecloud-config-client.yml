@@ -18,8 +18,10 @@ eureka:
   egister-with-eureka: false
 
 info:
-  app.name: moudlecloud-config-client-dev
-  company.name: liu
+  app:
+   name: moudlecloud-config-client-dev
+  company:
+   name: liu
 
 ---
 server:
@@ -37,5 +39,7 @@ eureka:
   register-with-eureka: false
   
 info:
-  app.name:moudlecloud-config-client-dev
-  company.name: liu
+  app:
+   name: moudlecloud-config-client-dev
+  company:
+   name: liu
