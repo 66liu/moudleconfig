@@ -9,7 +9,7 @@ server:
 spring:
   profiles: dev
   application:
-    name: module-provider-product
+    name: module-config-product-client
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource # 配置当前要使用的数据源的操作类型
     driver-class-name: com.mysql.jdbc.Driver #配置MySQL的驱动程序类
@@ -38,7 +38,7 @@ eureka:
     serviceUrl:
       defaultZone: http://admin:liu123@eureka1:7001/eureka
   instance:
-    instance-id: module-provider-product-8080
+    instance-id: module-config-product-client-8080
     prefer-ip-address: true
     lease-expiration-duration-in-seconds: 5
     lease-renewal-interval-in-seconds: 2
@@ -63,7 +63,7 @@ server:
 spring:
   profiles: beta
   application:
-    name: module-provider-product
+    name: module-config-product-client
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource # 配置当前要使用的数据源的操作类型
     driver-class-name: com.mysql.jdbc.Driver #配置MySQL的驱动程序类
@@ -92,13 +92,13 @@ eureka:
     serviceUrl:
       defaultZone: http://admin:liu123@eureka1:7002/eureka
   instance:
-    instance-id: module-provider-product-8080
+    instance-id: module-config-product-client-8081
     prefer-ip-address: true
     lease-expiration-duration-in-seconds: 5
     lease-renewal-interval-in-seconds: 2
 
 info:
-  app.name: module-provider-product
+  app.name: module-config-product-client
   company.name: test
   build.artifactId: $project.artifactId$
   build.modelVersion: $project.modelVersion$
