@@ -1,38 +1,48 @@
 server:
- port: 8081
-mybatis:
- mapper-locations: # 所有的mapper映射文件
- - classpath:mapping/*.xml
+  port: 8081
 spring:
- datasource:
-   type: com.alibaba.druid.pool.DruidDataSource # 配置当前要使用的数据源的操作类型
-   driver-class-name: com.mysql.jdbc.Driver # 配置MySQL的驱动程序类
-   url: jdbc:mysql://localhost:3306/springcloud?serverTimezone=GMT%2B8 # 数据库连接地址
-   username: root # 数据库用户名
-   password: 123456 # 数据库连接密码
- application:
-   name: moudlecloud-config-product-client
- profiles: beta
+  profiles: beta
+  application:
+    name: module-provider-product
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource # 配置当前要使用的数据源的操作类型
+    driver-class-name: com.mysql.jdbc.Driver #配置MySQL的驱动程序类
+#    driver-class-name: com.mysql.cj.jdbc.Driver #配置MySQL的驱动程序类
+    url: jdbc:mysql://localhost:3306/springcloud?serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+#  security:
+#    user:
+#      name: admin
+#      password: liu123
+#      roles:
+#      - USER
+mybatis:
+  mapper-locations: classpath:mapping/*.xml
 
 logging:
+  file:
+    name: product.log
   level:
-    cn.liu.mapper: debug
+    root: INFO
+    com.liu.mapper: DEBUG
 
 eureka:
-  client: # 客户端进行Eureka注册的配置
-    service-url:
-      defaultZone: http://admin:liu123@localhost:7002/eureka
+  client:
+    serviceUrl:
+      defaultZone: http://admin:liu123@eureka1:7002/eureka
   instance:
-    instance-id: moudlecloud-config-product-client
+    instance-id: module-provider-product-8080
     prefer-ip-address: true
-    lease-renewal-interval-in-seconds: 2 # 设置心跳的时间间隔（默认是30秒）
-    lease-expiration-duration-in-seconds: 5  # 如果现在超过了5秒的间隔（默认是90秒）
+    lease-expiration-duration-in-seconds: 5
+    lease-renewal-interval-in-seconds: 2
 
 info:
-  app.name: moudlecloud-config-product-client
-  company.name: enjoy
+  app.name: module-provider-product
+  company.name: test
   build.artifactId: $project.artifactId$
   build.modelVersion: $project.modelVersion$
+
 
 management:
   endpoints:
