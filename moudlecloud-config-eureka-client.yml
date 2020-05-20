@@ -24,3 +24,26 @@ spring:
       password: liu123
   application:
     name: moudlecloud-config-eureka-client
+
+---
+server:
+ port: 7002
+eureka:
+  server:
+    eviction-interval-timer-in-ms: 1000
+    enable-self-preservation: false
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://admin:liu123@eureka1:7002/eureka
+  instance:
+    hostname: eureka1
+spring:
+  profiles: beta
+  security:
+    user:
+      name: admin
+      password: liu123
+  application:
+    name: moudlecloud-config-eureka-client
