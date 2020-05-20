@@ -14,7 +14,13 @@ spring:
 eureka:
  client:
   service-url:
-    defaultZone: http://admin:liu123@eureka1:7001/eureka,http://admin:liu123@eureka2:7002/eureka,http://admin:liu123@eureka3:7003/eureka
+    defaultZone:  http://admin:liu123@localhost:7301/eureka
+  egister-with-eureka: false
+
+info:
+  app.name: moudlecloud-config-client-dev
+  company.name: liu
+
 ---
 server:
   port: 8102
@@ -27,4 +33,9 @@ spring:
 eureka:
  client:
   service-url:
-    defaultZone: http://admin:liu123@eureka1:7001/eureka,http://admin:liu123@eureka2:7002/eureka,http://admin:liu123@eureka3:7003/eureka
+    defaultZone: http://admin:enjoy@localhost:7301/eureka
+  register-with-eureka: false
+  
+info:
+  app.name:moudlecloud-config-client-dev
+  company.name: liu123
